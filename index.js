@@ -244,19 +244,23 @@ function startCalculating() {
     }
 
 
-    if (removeDriverLicense) {
-        noticeText = "Führerschein entziehen"
-    }
-	if (removeWeaponLicense) {
-		noticeText = "Waffenschein entziehen"
+	if (removeDriverLicense) {
+		noticeText = "Führerschein entziehen"
 	}
-    if (removeFlyLicense) {
-        if (noticeText == "") {
-            noticeText = "Flugschein entziehen"
-        } else {
-            noticeText = noticeText + " + Flugschein entziehen"
-        }
-    }
+	if (removeWeaponLicense) {
+		if (noticeText == "") {
+			noticeText = "Waffenschein entziehen"
+		} else {
+			noticeText += " + Waffenschein entziehen"
+		}
+	}
+	if (removeFlyLicense) {
+		if (noticeText == "") {
+			noticeText = "Flugschein entziehen"
+		} else {
+			noticeText += " + Flugschein entziehen"
+		}
+	}
 
     if (tvübergabe_org !== "none" && tvübergabe_name !== "") {
         reasonText += ` - @${tvübergabe_org.toLocaleUpperCase()} ${tvübergabe_name}`
