@@ -123,20 +123,20 @@ function startCalculating() {
     console.log("Largest Wanteds:" + maxWanted);  
     console.log("Largest Fine:" + maxFine);  
 
-    for (var i = 0; i < fineCollection.length; i++) {
-       // fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
+   for (var i = 0; i < fineCollection.length; i++) {
+        //fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
 
         let extrawanteds_found = fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted")
         let extrafines_amount = 0
         for (let b = 0; b < extrawanteds_found.length; b++) {
-            if (extrawanteds_found[b].getAttribute("data-addedfine")) fineAmount = fineAmount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
+            //if (extrawanteds_found[b].getAttribute("data-addedfine")) fineAmount = fineAmount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
             extrafines_amount = extrafines_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
         }
 
-        wantedAmount = wantedAmount + parseInt(fineCollection[i].querySelector(".wantedAmount").getAttribute("data-wantedamount"))
+        //wantedAmount = wantedAmount + parseInt(fineCollection[i].querySelector(".wantedAmount").getAttribute("data-wantedamount"))
         
-        wantedAmount = wantedAmount + fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted").length
-        if (wantedAmount > 5) wantedAmount = 5
+        //wantedAmount = wantedAmount + fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted").length
+        //if (wantedAmount > 5) wantedAmount = 5
         
 
         const d = new Date();
