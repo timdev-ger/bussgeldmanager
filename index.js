@@ -124,7 +124,7 @@ function startCalculating() {
     console.log("Largest Fine:" + maxFine);  
 
     for (var i = 0; i < fineCollection.length; i++) {
-        fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
+       // fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
 
         let extrawanteds_found = fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted")
         let extrafines_amount = 0
