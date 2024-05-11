@@ -244,8 +244,11 @@ function startCalculating() {
 	if (removeWeaponLicense) {
 		noticeText = "Waffenschein entziehen"
 	}
+	if (removeFlyLicense) {
+		noticeText = "Flugschein entziehen"
+	}	
     if (removeFlyLicense) {
-        if (noticeText =="") {
+        if (noticeText == "") {
             noticeText = "Flugschein entziehen"
         } else {
             noticeText = noticeText + " + Flugschein entziehen"
