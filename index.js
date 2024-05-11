@@ -54,6 +54,8 @@ function startCalculating() {
     let noticeText = ""
     let removeWeaponLicense = false
     let removeDriverLicense = false
+	let removeFlyLicense = false
+
 
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
@@ -180,6 +182,7 @@ function startCalculating() {
 
         if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
         if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
+		if (fineCollection[i].getAttribute("data-removeflylicence") == "true") removeFlyLicense = true
 
         
 
@@ -238,11 +241,14 @@ function startCalculating() {
     if (removeDriverLicense) {
         noticeText = "Führerschein entziehen"
     }
-    if (removeWeaponLicense) {
+	if (removeWeaponLicense) {
+		noticeText = "Waffenschein entziehen"
+	}
+    if (removeFlyLicense) {
         if (noticeText =="") {
-            noticeText = "Waffenschein entziehen"
+            noticeText = "Flugschein entziehen"
         } else {
-            noticeText = noticeText + " + Waffenschein entziehen"
+            noticeText = noticeText + " + Flugschein entziehen"
         }
     }
 
