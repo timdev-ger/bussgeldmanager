@@ -262,6 +262,7 @@ function startCalculating() {
 		}
 	}
 
+
     if (tvübergabe_org !== "none" && tvübergabe_name !== "") {
         reasonText += ` - @${tvübergabe_org.toLocaleUpperCase()} ${tvübergabe_name}`
     }
