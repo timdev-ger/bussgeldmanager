@@ -31,7 +31,7 @@
 <body>
 
     <div id="loading">
-        <img draggable="false" src="https://kadentrapstar.github.io/bussgeldrechner/DOJ_logo.png" alt="DOJ_logo">
+        <img draggable="false" src="https://kadentrapstar.github.io/bussgeldmanager/DOJ_logo.png" alt="DOJ_logo">
         <div id="dotContainer">
             <div class="dot" id="dot1"><div class="dotContent"></div></div>
             <div class="dot" id="dot2"><div class="dotContent"></div></div>
@@ -43,7 +43,7 @@
         <div id="disclaimerBackgroundBlocker"></div>
     <div id="disclaimer">
         <div id="disclaimer_title"><i id="disclaimer_title_warning" class="fa-regular fa-triangle-exclamation" style="color: rgb(255, 73, 73);"></i> Disclaimer</div>
-        <div id="disclaimer_text">Dieser bussgeldrechner wird von Kaden Trapstar so aktuell wie möglich gehalten, was jedoch nicht bedeutet das dieser immer Up-To-Date ist.<br>Sollten Akten oder Geldstrafen falsch ausgestellt worden sein, haftet ihr für euer Fehler.</div>
+        <div id="disclaimer_text">Dieser Bußgeldrechner wird von Kaden Trapstar so aktuell wie möglich gehalten, was jedoch nicht bedeutet das dieser immer Up-To-Date ist.<br>Sollten Akten oder Geldstrafen falsch ausgestellt worden sein, haftet ihr für euer Fehler.</div>
         <button id="disclaimer_button" onclick="JavaScript:disclaimerAccepted()">Warnung verstanden</button>
     </div>
 
@@ -1201,12 +1201,13 @@
             </div>
 
             <div id="notepadArea"><textarea id="notepadArea_input" name="" placeholder="Schreibe deine Notizen hier rein..." id="" rows="3"></textarea></div>
-
+			
+			<!----
 			<div id="reue">
                 <input id="reue_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
                 <label for="reue_box"><font id="checkboxfont1" style="line-height: 25px;">Reue</font><br><font style="font-size: 15px; font-weight: 400;">(Entfernt 2 Wanteds, 1 Wanted muss verbleiben gemäß StBG §35 - Reue)</font></label>
             </div>
-
+			--->
             <div id="systemfehler">
                 <input id="systemfehler_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
                 <label style="line-height: 25px;" for="systemfehler_box">Systemfehler</label>
