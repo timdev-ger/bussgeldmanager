@@ -180,9 +180,15 @@ function startCalculating() {
             }
         }
 
-        if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
-        if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
-		if (fineCollection[i].getAttribute("data-removeflylicence") == "true") removeFlyLicense = true
+        if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") {
+			removeDriverLicense = true
+		}
+        if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") {
+			removeWeaponLicense = true
+		}
+		if (fineCollection[i].getAttribute("data-removeflylicence") == "true") {
+			removeFlyLicense = true
+		}
 
         
 
