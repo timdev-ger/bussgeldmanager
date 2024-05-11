@@ -52,10 +52,8 @@ function startCalculating() {
 
     let infoResult = document.getElementById("infoResult")
     let noticeText = ""
-	
     let removeWeaponLicense = false
     let removeDriverLicense = false
-	let removeFlyLicense = false
 
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
@@ -182,9 +180,8 @@ function startCalculating() {
 
         if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
         if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
-		if (fineCollection[i].getAttribute("data-removeflylicense") == "true") removeFlyLicense = true
 
-
+        
 
         if (fineCollection[i].classList.contains("addPlateInList")) {
 
@@ -241,9 +238,6 @@ function startCalculating() {
     if (removeDriverLicense) {
         noticeText = "Führerschein entziehen"
     }
-	if (removeFlyLicense) {
-		noticeText = "Flugschein entziehen"
-	}
     if (removeWeaponLicense) {
         if (noticeText =="") {
             noticeText = "Waffenschein entziehen"
@@ -261,7 +255,6 @@ function startCalculating() {
     fineResult.innerHTML = `<b>Geldstrafe:</b> <font style="user-select: all;">$${fineAmount}</font>`
     wantedResult.innerHTML = `<b>Wanteds:</b> <font style="user-select: all;">${wantedAmount}</font>`
     reasonResult.innerHTML = `<b>Grund:</b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font>`
-	exclusionResult.innerHTML =
     if (reasonText.length <= 150) {
         characterResult.innerHTML = `<b>Zeichen:</b> ${reasonText.length}/150`
     } else {
