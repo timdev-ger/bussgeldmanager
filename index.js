@@ -220,7 +220,7 @@ function startCalculating() {
 	
 
     if (plate != "") {
-        reasonText += ` - ${plate.toLocaleUpperCase()}`
+        reasonText += ` - (${plate.toLocaleUpperCase()})`
     }
 
     if (blitzerort != "") {
