@@ -121,6 +121,9 @@ function startCalculating() {
     console.log("Largest Wanteds:" + maxWanted);  
     console.log("Largest Fine:" + maxFine);  
 	*/
+	
+    if (wantedAmount == undefined) wantedAmount = 0
+    if (fineAmount == undefined) fineAmount = 0	
 
     for (var i = 0; i < fineCollection.length; i++) {
         //fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
