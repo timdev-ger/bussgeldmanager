@@ -28,21 +28,45 @@ function selectFine(event) {
 
     startCalculating()
 }
-
 function startCalculating() {
 
-  document.getElementById("finesListTable").innerHTML = `<tr>
+    document.getElementById("finesListTable").innerHTML = `<tr>
                     <th style="width: 80%;">Grund für die Geldstrafe</th>
                     <th style="width: 20%;">Bußgeld</th>
                 </tr>`
 
     let fineResult = document.getElementById("fineResult")
     let fineAmount = 0
+
+    let wantedResult = document.getElementById("wantedsResult")
+    let wantedAmount = 0
+
+    let characterResult = document.getElementById("charactersResult")
+
+    let reasonResult = document.getElementById("reasonResult")
+    let reasonText = ""
+    let plate = document.getElementById("plateInput_input").value
+    let systemwanteds = document.getElementById("systemwantedsInput_input").value
+    let blitzerort = document.getElementById("blitzerInput_input").value
+
+    let infoResult = document.getElementById("infoResult")
+    let noticeText = ""
+    let removeWeaponLicense = false
+    let removeDriverLicense = false
+	let removeFlyLicense = false
+
+
+    let tvübergabe_org = document.getElementById("übergabeInput_select").value
+    let tvübergabe_name = document.getElementById("übergabeInput_input").value
+
+    let shortMode = false
+    if (document.getElementById("checkbox_box").checked) shortMode = true
+
     let fineCollection = document.querySelectorAll(".selected")
     let fineCollectionWantedAmount = []
     let fineCollectionFineAmount = []
 
- for (var i = 0; i < fineCollection.length; i++) { 
+    for (var i = 0; i < fineCollection.length; i++) { 
 
 
 
@@ -71,9 +95,9 @@ function startCalculating() {
 
     }
 
-console.log(fineCollectionWantedAmount);
-
-let maxWanted = fineCollectionWantedAmount[0]; // initialize to the first value
+    console.log(fineCollectionWantedAmount);
+    
+    let maxWanted = fineCollectionWantedAmount[0]; // initialize to the first value
 
     for (let i = 1; i < fineCollectionWantedAmount.length; i++) {
         if (fineCollectionWantedAmount[i] > maxWanted) {
@@ -254,6 +278,7 @@ let maxWanted = fineCollectionWantedAmount[0]; // initialize to the first value
         characterResult.innerHTML = `<b>Zeichen:</b> <font style="color: red;">${reasonText.length}/150<br>Dieser Grund ist zu lang!</font>`
     }
 
+}
 }
 
 function showFines() {
