@@ -420,6 +420,8 @@ function toggleExtraWanted(event) {
     //}
 }
 
+// Sss
+
 setInterval(() => {
     if (document.getElementById("disclaimer_title_warning").style.color == "rgb(255, 73, 73)") {
         document.getElementById("disclaimer_title_warning").style.color = "rgb(255, 255, 255)"
