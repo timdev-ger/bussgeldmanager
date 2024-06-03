@@ -95,7 +95,7 @@ function startCalculating() {
     }
 
     console.log(fineCollectionWantedAmount);
-    
+    /*
     let maxWanted = fineCollectionWantedAmount[0]; // initialize to the first value
 
     for (let i = 1; i < fineCollectionWantedAmount.length; i++) {
@@ -104,7 +104,7 @@ function startCalculating() {
         }
     }
 
-    /*let maxFine = fineCollectionFineAmount[0]; // initialize to the first value
+    let maxFine = fineCollectionFineAmount[0]; // initialize to the first value
 
     for (let i = 1; i < fineCollectionFineAmount.length; i++) {
         if (fineCollectionFineAmount[i] > maxFine) {
