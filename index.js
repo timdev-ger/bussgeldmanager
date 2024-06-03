@@ -37,28 +37,26 @@ function startCalculating() {
                 </tr>`
 
     let fineResult = document.getElementById("fineResult")
-    let fineAmount = 0
-
     let wantedResult = document.getElementById("wantedsResult")
-    let wantedAmount = 0
-
     let characterResult = document.getElementById("charactersResult")
-
     let reasonResult = document.getElementById("reasonResult")
-    let reasonText = ""
     let plate = document.getElementById("plateInput_input").value
     let systemwanteds = document.getElementById("systemwantedsInput_input").value
     let blitzerort = document.getElementById("blitzerInput_input").value
-
     let infoResult = document.getElementById("infoResult")
-    let noticeText = ""
-    let removeWeaponLicense = false
-    let removeDriverLicense = false
-
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
-
-    let shortMode = false
+	
+	let reasonText = ""
+    let noticeText = ""
+	
+    let removeWeaponLicense = false
+    let removeDriverLicense = false
+	let shortMode = false
+	
+    let wantedAmount = 0
+	let fineAmount = 0	
+	
     if (document.getElementById("checkbox_box").checked) shortMode = true
 
     let fineCollection = document.querySelectorAll(".selected")
@@ -67,26 +65,28 @@ function startCalculating() {
 
     for (var i = 0; i < fineCollection.length; i++) { 
 
-
-
         let cache_wanted_amount = 0;
+		let cache_fine_amount = 0;
 
         cache_wanted_amount = cache_wanted_amount + parseInt(fineCollection[i].querySelector(".wantedAmount").getAttribute("data-wantedamount"))
-        
         cache_wanted_amount = cache_wanted_amount + fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted").length
-        if (cache_wanted_amount > 5) cache_wanted_amount = 5
+		
+        if (cache_wanted_amount > 5) {
+			cache_wanted_amount = 5
+		}
 
         fineCollectionWantedAmount.push(cache_wanted_amount)
-
-
-        let cache_fine_amount = 0;
 
         cache_fine_amount = cache_fine_amount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
 
         let extrawanteds_found = fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted")
         let extrafines_amount = 0
+		
         for (let b = 0; b < extrawanteds_found.length; b++) {
-            if (extrawanteds_found[b].getAttribute("data-addedfine")) cache_fine_amount = cache_fine_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
+            if (extrawanteds_found[b].getAttribute("data-addedfine")) {
+				cache_fine_amount = cache_fine_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
+			}
+			
             extrafines_amount = extrafines_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
         }
 
@@ -95,38 +95,16 @@ function startCalculating() {
     }
 
     console.log(fineCollectionWantedAmount);
-    /*
-    let maxWanted = fineCollectionWantedAmount[0]; // initialize to the first value
 
-    for (let i = 1; i < fineCollectionWantedAmount.length; i++) {
-        if (fineCollectionWantedAmount[i] > maxWanted) {
-            maxWanted = fineCollectionWantedAmount[i];
-        }
-    }
-
-    let maxFine = fineCollectionFineAmount[0]; // initialize to the first value
-
-    for (let i = 1; i < fineCollectionFineAmount.length; i++) {
-        if (fineCollectionFineAmount[i] > maxFine) {
-            maxFine = fineCollectionFineAmount[i];
-        }
-    }
-
-    wantedAmount = maxWanted
-    fineAmount = maxFine
-   
-    if (wantedAmount == undefined) wantedAmount = 0
-    if (fineAmount == undefined) fineAmount = 0
-    
-    console.log("Largest Wanteds:" + maxWanted);  
-    console.log("Largest Fine:" + maxFine);  
-	*/
+    if (wantedAmount == undefined) {
+		wantedAmount = 0
+	}
+    if (fineAmount == undefined) {
+		fineAmount = 0	
+	}
 	
-    if (wantedAmount == undefined) wantedAmount = 0
-    if (fineAmount == undefined) fineAmount = 0	
-	
-	console.log("Wanteds:" + wantedAmount);  
-	console.log("Geld:" + fineAmount); 
+	console.log(wantedAmount);  
+	console.log(fineAmount); 
 
     for (var i = 0; i < fineCollection.length; i++) {
         fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
