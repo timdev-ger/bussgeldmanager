@@ -124,6 +124,9 @@ function startCalculating() {
 	
     if (wantedAmount == undefined) wantedAmount = 0
     if (fineAmount == undefined) fineAmount = 0	
+	
+	console.log("Wanteds:" + wantedAmount);  
+	console.log("Geld:" + fineAmount); 
 
     for (var i = 0; i < fineCollection.length; i++) {
         fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
