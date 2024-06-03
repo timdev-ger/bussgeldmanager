@@ -30,79 +30,11 @@ function selectFine(event) {
 }
 
 function startCalculating() {
-
-    document.getElementById("finesListTable").innerHTML = `<tr>
-                    <th style="width: 80%;">Grund für die Geldstrafe</th>
-                    <th style="width: 20%;">Bußgeld</th>
-                </tr>`
-
-    let fineResult = document.getElementById("fineResult")
-    let fineAmount = 0
-
-    let wantedResult = document.getElementById("wantedsResult")
-    let wantedAmount = 0
-
-    let characterResult = document.getElementById("charactersResult")
-
-    let reasonResult = document.getElementById("reasonResult")
-    let reasonText = ""
-    let plate = document.getElementById("plateInput_input").value
-    let systemwanteds = document.getElementById("systemwantedsInput_input").value
-    let blitzerort = document.getElementById("blitzerInput_input").value
-
-    let infoResult = document.getElementById("infoResult")
-    let noticeText = ""
-    let removeWeaponLicense = false
-    let removeDriverLicense = false
-	let removeFlyLicense = false
-
-
-    let tvübergabe_org = document.getElementById("übergabeInput_select").value
-    let tvübergabe_name = document.getElementById("übergabeInput_input").value
-
-    let shortMode = false
-    if (document.getElementById("checkbox_box").checked) shortMode = true
-
-    let fineCollection = document.querySelectorAll(".selected")
-    let fineCollectionWantedAmount = []
-    let fineCollectionFineAmount = []
-
-    for (var i = 0; i < fineCollection.length; i++) { 
-
-
-
-        let cache_wanted_amount = 0;
-
-        cache_wanted_amount = cache_wanted_amount + parseInt(fineCollection[i].querySelector(".wantedAmount").getAttribute("data-wantedamount"))
-        
-        cache_wanted_amount = cache_wanted_amount + fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted").length
-        if (cache_wanted_amount > 5) cache_wanted_amount = 5
-
-        fineCollectionWantedAmount.push(cache_wanted_amount)
-
-
-        let cache_fine_amount = 0;
-
-        cache_fine_amount = cache_fine_amount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
-
-        let extrawanteds_found = fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted")
-        let extrafines_amount = 0
-        for (let b = 0; b < extrawanteds_found.length; b++) {
-            if (extrawanteds_found[b].getAttribute("data-addedfine")) cache_fine_amount = cache_fine_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
-            extrafines_amount = extrafines_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
-        }
-
-        fineCollectionFineAmount.push(cache_fine_amount)
-
-    }
-
-    console.log(fineCollectionWantedAmount);
-    
-    function startCalculating() {
-    document.getElementById("finesListTable").innerHTML = `<tr>
-                    <th style="width: 80%;">Grund für die Geldstrafe</th>
-                    <th style="width: 20%;">Bußgeld</th>
-                </tr>`
+    document.getElementById("finesListTable").innerHTML = `
+        <tr>
+            <th style="width: 80%;">Grund für die Geldstrafe</th>
+            <th style="width: 20%;">Bußgeld</th>
+        </tr>`;
 
     let fineResult = document.getElementById("fineResult");
     let fineAmount = 0;
@@ -110,7 +42,7 @@ function startCalculating() {
     let totalWantedAmount = 0;
     let totalFineAmount = 0;
 
-    for (var i = 0; i < fineCollection.length; i++) {
+    for (let i = 0; i < fineCollection.length; i++) {
         let cache_wanted_amount = parseInt(fineCollection[i].querySelector(".wantedAmount").getAttribute("data-wantedamount")) || 0;
         let selectedExtraWanteds = fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted").length;
 
@@ -225,13 +157,14 @@ function startCalculating() {
 
     infoResult.innerHTML = `<b>Information:</b> ${noticeText}`;
     fineResult.innerHTML = `<b>Geldstrafe:</b> <font style="user-select: all;">$${fineAmount}</font>`;
-    document.getElementById("wantedsResult").innerHTML = `<b>Wanteds:</b> <font style="user-select: all;">${wantedAmount}</font>`;
+    document.getElementById("wantedResult").innerHTML = `<b>Wanteds:</b> <font style="user-select: all;">${wantedAmount}</font>`;
     document.getElementById("reasonResult").innerHTML = `<b>Grund:</b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font>`;
 
-    document.getElementById("charactersResult").innerHTML = reasonText.length <= 150
+    document.getElementById("characterResult").innerHTML = reasonText.length <= 150
         ? `<b>Zeichen:</b> ${reasonText.length}/150`
         : `<b>Zeichen:</b> <font style="color: red;">${reasonText.length}/150<br>Dieser Grund ist zu lang!</font>`;
 }
+
 
 
 function showFines() {
