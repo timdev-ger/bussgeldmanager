@@ -28,6 +28,7 @@ function selectFine(event) {
 
     startCalculating()
 }
+
 function startCalculating() {
 
     document.getElementById("finesListTable").innerHTML = `<tr>
@@ -53,8 +54,6 @@ function startCalculating() {
     let noticeText = ""
     let removeWeaponLicense = false
     let removeDriverLicense = false
-	let removeFlyLicense = false
-
 
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
@@ -122,7 +121,7 @@ function startCalculating() {
     console.log("Largest Wanteds:" + maxWanted);  
     console.log("Largest Fine:" + maxFine);  
 
-   for (var i = 0; i < fineCollection.length; i++) {
+    for (var i = 0; i < fineCollection.length; i++) {
         //fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
 
         let extrawanteds_found = fineCollection[i].querySelector(".wantedAmount").querySelectorAll(".selected_extrawanted")
@@ -179,15 +178,8 @@ function startCalculating() {
             }
         }
 
-        if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") {
-			removeDriverLicense = true
-		}
-        if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") {
-			removeWeaponLicense = true
-		}
-		if (fineCollection[i].getAttribute("data-removeflylicence") == "true") {
-			removeFlyLicense = true
-		}
+        if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
+        if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
 
         
 
@@ -211,15 +203,14 @@ function startCalculating() {
         }
 
     }
-	
+
     if (document.getElementById("reue_box").checked && wantedAmount !== 0) { // Means "reue" is active
         wantedAmount = wantedAmount - 2
         if (wantedAmount < 1) wantedAmount = 1
     }
-	
 
     if (plate != "") {
-        reasonText += ` (Kennzeichen: ${plate.toLocaleUpperCase()})`
+        reasonText += ` - ${plate.toLocaleUpperCase()}`
     }
 
     if (blitzerort != "") {
@@ -244,24 +235,16 @@ function startCalculating() {
     }
 
 
-	if (removeDriverLicense) {
-		noticeText = "Führerschein entziehen"
-	}
-	if (removeWeaponLicense) {
-		if (noticeText == "") {
-			noticeText = "Waffenschein entziehen"
-		} else {
-			noticeText += " + Waffenschein entziehen"
-		}
-	}
-	if (removeFlyLicense) {
-		if (noticeText == "") {
-			noticeText = "Flugschein entziehen"
-		} else {
-			noticeText += " + Flugschein entziehen"
-		}
-	}
-
+    if (removeDriverLicense) {
+        noticeText = "Führerschein entziehen"
+    }
+    if (removeWeaponLicense) {
+        if (noticeText =="") {
+            noticeText = "Waffenschein entziehen"
+        } else {
+            noticeText = noticeText + " + Waffenschein entziehen"
+        }
+    }
 
     if (tvübergabe_org !== "none" && tvübergabe_name !== "") {
         reasonText += ` - @${tvübergabe_org.toLocaleUpperCase()} ${tvübergabe_name}`
@@ -279,7 +262,7 @@ function startCalculating() {
     }
 
 }
-}
+
 
 function showFines() {
     if (document.getElementById("finesListContainer").style.opacity == 0) {
