@@ -94,15 +94,7 @@ function startCalculating() {
 
     }
 
-    console.log(fineCollectionWantedAmount);
-
-    if (wantedAmount == undefined) {
-		wantedAmount = 0
-	}
-    if (fineAmount == undefined) {
-		fineAmount = 0	
-	}
-	
+    console.log(fineCollectionWantedAmount);	
 	console.log(wantedAmount);  
 	console.log(fineAmount); 
 
