@@ -38,7 +38,6 @@ function startCalculating() {
 
     let fineResult = document.getElementById("fineResult")
     let wantedResult = document.getElementById("wantedsResult")
-    let characterResult = document.getElementById("charactersResult")
     let reasonResult = document.getElementById("reasonResult")
     let plate = document.getElementById("plateInput_input").value
     let systemwanteds = document.getElementById("systemwantedsInput_input").value
@@ -232,11 +231,6 @@ function startCalculating() {
     fineResult.innerHTML = `<b>Geldstrafe:</b> <font style="user-select: all;">$${fineAmount}</font>`
     wantedResult.innerHTML = `<b>Wanteds:</b> <font style="user-select: all;">${wantedAmount}</font>`
     reasonResult.innerHTML = `<b>Grund:</b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font>`
-    if (reasonText.length <= 150) {
-        characterResult.innerHTML = `<b>Zeichen:</b> ${reasonText.length}/150`
-    } else {
-        characterResult.innerHTML = `<b>Zeichen:</b> <font style="color: red;">${reasonText.length}/150<br>Dieser Grund ist zu lang!</font>`
-    }
 
 }
 
