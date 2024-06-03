@@ -333,16 +333,16 @@ function resetButton() {
 
 function copyText(event) {
     let target = event.target
-    // Get the text field
+    
     var copyText = target.innerHTML
   
-    // Copy the text inside the text field
     navigator.clipboard.writeText(copyText.replace("<br>", ""));
 
-    insertNotification("success", "Der Text wurde kopiert.", 5)
+    insertNotification("success", "Die Strafen wurden erfolgreich in deine Zwischenablage kopiert.", 5)
 }
 
 function toggleExtraWanted(event) {
+	
     let target = event.target
     let extrastarNumber = 0
     let isSelected = false
