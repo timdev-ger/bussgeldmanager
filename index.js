@@ -104,7 +104,7 @@ function startCalculating() {
         }
     }
 
-    let maxFine = fineCollectionFineAmount[0]; // initialize to the first value
+    /*let maxFine = fineCollectionFineAmount[0]; // initialize to the first value
 
     for (let i = 1; i < fineCollectionFineAmount.length; i++) {
         if (fineCollectionFineAmount[i] > maxFine) {
@@ -120,6 +120,7 @@ function startCalculating() {
     
     console.log("Largest Wanteds:" + maxWanted);  
     console.log("Largest Fine:" + maxFine);  
+	*/
 
     for (var i = 0; i < fineCollection.length; i++) {
         //fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
