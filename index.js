@@ -140,17 +140,17 @@ function startCalculating() {
             fineText = fineCollection[i].querySelector(".fineText").innerHTML
         }
 
-        if (shortMode) {
+         if (shortMode) {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
             } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") - " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+                reasonText += ` + ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
             }
         } else {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
+                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
             } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
+                reasonText += ` + ${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
             }
         }
 
@@ -159,7 +159,7 @@ function startCalculating() {
 
         
 
-        if (fineCollection[i].classList.contains("addPlateInList")) {
+         if (fineCollection[i].classList.contains("addPlateInList")) {
 
             document.getElementById("finesListTable").innerHTML +=
             `
