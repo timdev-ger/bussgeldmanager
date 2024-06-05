@@ -129,9 +129,11 @@ body {
 }
 
 #finesHeader th {
+    position: sticky;
     overflow: hidden;
     color: white;
     font-size: 20px;
+    z-index: 1;
 }
 
 #fineslist table tr td {
