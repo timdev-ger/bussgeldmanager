@@ -129,11 +129,15 @@ body {
 }
 
 #finesHeader th {
-    position: sticky;
     overflow: hidden;
     color: white;
     font-size: 20px;
-    z-index: 1;
+}
+
+#finesHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 #fineslist table tr td {
