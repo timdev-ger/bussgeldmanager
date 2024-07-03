@@ -254,7 +254,7 @@ function showAttorneys() {
     }
 } 
 
-
+/*
 window.onload = async () => {
     let savedBody;
     let alreadyBig = true
@@ -278,7 +278,7 @@ window.onload = async () => {
             location.reload()
         }
     }, 1)
-}
+}*/
 
 function resetButton() {
     let fineCollection = document.querySelectorAll(".selected")
