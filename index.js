@@ -150,7 +150,7 @@ function startCalculating() {
             if (reasonText == "") {
                 reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
             } else {
-                reasonText += ` TEST5 ${fineCollection[i].querySelector(".paragraph").innerHTML} TEST6 ${fineText}`
+                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
             }
         }
 
