@@ -142,15 +142,15 @@ function startCalculating() {
 
          if (shortMode) {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} TEST1 ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+                reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
             } else {
                 reasonText += ` TEST2 ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
             }
         } else {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
+                reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
             } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
+                reasonText += ` | ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
             }
         }
 
