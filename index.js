@@ -41,7 +41,7 @@ function startCalculating() {
     let reasonResult = document.getElementById("reasonResult")
     let plate = document.getElementById("plateInput_input").value
     let systemwanteds = document.getElementById("systemwantedsInput_input").value
-    let cufftime = document.getElementById("cuffInput_input").value
+    let blitzerort = document.getElementById("blitzerInput_input").value
     let infoResult = document.getElementById("infoResult")
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
@@ -104,7 +104,7 @@ function startCalculating() {
         let extrafines_amount = 0
         for (let b = 0; b < extrawanteds_found.length; b++) {
             if (extrawanteds_found[b].getAttribute("data-addedfine")) fineAmount = fineAmount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
-				extrafines_amount = extrafines_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
+            extrafines_amount = extrafines_amount + parseInt(extrawanteds_found[b].getAttribute("data-addedfine"))
         }
 
         wantedAmount = wantedAmount + parseInt(fineCollection[i].querySelector(".wantedAmount").getAttribute("data-wantedamount"))
@@ -140,31 +140,31 @@ function startCalculating() {
             fineText = fineCollection[i].querySelector(".fineText").innerHTML
         }
 
-	if (shortMode) {
-		if (reasonText == "") {
-			reasonText = `${cufftime} | ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
-		} else {
-			reasonText += ` + ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
-		}
-	} else {
-		if (reasonText == "") {
-			reasonText = `${cufftime} | ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
-		} else {
-			reasonText += ` + ${cufftime} | ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
-		}
-	}
+         if (shortMode) {
+            if (reasonText == "") {
+                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+            } else {
+                reasonText += ` + ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+            }
+        } else {
+            if (reasonText == "") {
+                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
+            } else {
+                reasonText += ` + ${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
+            }
+        }
 
-	if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
-	if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
+        if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
+        if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
 
         
 
-		if (fineCollection[i].classList.contains("addPlateInList")) {
+         if (fineCollection[i].classList.contains("addPlateInList")) {
 
             document.getElementById("finesListTable").innerHTML +=
             `
             <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${cufftime} | ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}${plate !== "" ? " - " + plate.toLocaleUpperCase() : ""}</td>
+                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}${plate !== "" ? " - " + plate.toLocaleUpperCase() : ""}${blitzerort !== "" ? " - " + blitzerort : ""}</td>
                 <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
             </tr>
             `
@@ -172,7 +172,7 @@ function startCalculating() {
             document.getElementById("finesListTable").innerHTML +=
             `
             <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${cufftime} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}</td>
+                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}</td>
                 <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
             </tr>
             `
@@ -187,6 +187,10 @@ function startCalculating() {
 
     if (plate != "") {
         reasonText += ` - ${plate.toLocaleUpperCase()}`
+    }
+
+    if (blitzerort != "") {
+        reasonText += ` - ${blitzerort}`
     }
 
     if (document.getElementById("reue_box").checked) {
