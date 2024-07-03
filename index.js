@@ -148,7 +148,7 @@ function startCalculating() {
             }
         } else {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} TEST3 ${fineCollection[i].querySelector(".paragraph").innerHTML} TEST4 ${fineText}`
+                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
             } else {
                 reasonText += ` TEST5 ${fineCollection[i].querySelector(".paragraph").innerHTML} TEST6 ${fineText}`
             }
