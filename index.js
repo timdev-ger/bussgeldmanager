@@ -148,9 +148,9 @@ function startCalculating() {
             }
         } else {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} | ${fineText}`
+                reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
             } else {
-                reasonText += ` - ${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} | ${fineText}`
+                reasonText += ` - ${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
             }
         }
 
