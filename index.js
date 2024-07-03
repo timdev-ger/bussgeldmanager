@@ -172,7 +172,7 @@ function startCalculating() {
             document.getElementById("finesListTable").innerHTML +=
             `
             <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} | ${fineText}</td>
+                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} + ${fineText}</td>
                 <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
             </tr>
             `
