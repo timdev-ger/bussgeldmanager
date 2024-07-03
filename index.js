@@ -41,7 +41,7 @@ function startCalculating() {
     let reasonResult = document.getElementById("reasonResult")
     let plate = document.getElementById("plateInput_input").value
     let systemwanteds = document.getElementById("systemwantedsInput_input").value
-    let blitzerort = document.getElementById("blitzerInput_input").value
+    let cufftime = document.getElementById("cuffInput_input").value
     let infoResult = document.getElementById("infoResult")
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
@@ -148,9 +148,9 @@ function startCalculating() {
             }
         } else {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
+                reasonText = `${cufftime} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
             } else {
-                reasonText += ` + ${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
+                reasonText += ` + ${cufftime} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
             }
         }
 
@@ -164,7 +164,7 @@ function startCalculating() {
             document.getElementById("finesListTable").innerHTML +=
             `
             <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}${plate !== "" ? " - " + plate.toLocaleUpperCase() : ""}${blitzerort !== "" ? " - " + blitzerort : ""}</td>
+                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}${plate !== "" ? " - " + plate.toLocaleUpperCase() : ""}${cufftime !== "" ? " - " + cufftime : ""}</td>
                 <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
             </tr>
             `
@@ -187,10 +187,6 @@ function startCalculating() {
 
     if (plate != "") {
         reasonText += ` - ${plate.toLocaleUpperCase()}`
-    }
-
-    if (blitzerort != "") {
-        reasonText += ` - ${blitzerort}`
     }
 
     if (document.getElementById("reue_box").checked) {
@@ -287,7 +283,7 @@ function resetButton() {
     }
 
     document.getElementById("plateInput_input").value = ""
-    document.getElementById("blitzerInput_input").value = ""
+    document.getElementById("cuffInput_input").value = ""
     document.getElementById("systemwantedsInput_input").value = ""
 
     document.getElementById("übergabeInput_select").value = "none"
