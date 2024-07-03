@@ -144,13 +144,13 @@ function startCalculating() {
             if (reasonText == "") {
                 reasonText = `${day}.${month} ${hour}:${minute} TEST1 ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
             } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+                reasonText += ` TEST2 ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
             }
         } else {
             if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} TEST3 ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
+                reasonText = `${day}.${month} ${hour}:${minute} TEST3 ${fineCollection[i].querySelector(".paragraph").innerHTML} TEST4 ${fineText}`
             } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}`
+                reasonText += ` TEST5 ${fineCollection[i].querySelector(".paragraph").innerHTML} TEST6 ${fineText}`
             }
         }
 
@@ -164,7 +164,7 @@ function startCalculating() {
             document.getElementById("finesListTable").innerHTML +=
             `
             <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} TEST5 ${fineCollection[i].querySelector(".paragraph").innerHTML} - ${fineText}${plate !== "" ? " TEST6 " + plate.toLocaleUpperCase() : ""}${blitzerort !== "" ? " | " + blitzerort : ""}</td>
+                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} TEST7 ${fineCollection[i].querySelector(".paragraph").innerHTML} TEST8 ${fineText}${plate !== "" ? " TEST6 " + plate.toLocaleUpperCase() : ""}${blitzerort !== "" ? " | " + blitzerort : ""}</td>
                 <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
             </tr>
             `
@@ -172,7 +172,7 @@ function startCalculating() {
             document.getElementById("finesListTable").innerHTML +=
             `
             <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} TEST7 ${fineCollection[i].querySelector(".paragraph").innerHTML} + ${fineText}</td>
+                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} TEST9 ${fineCollection[i].querySelector(".paragraph").innerHTML} + ${fineText}</td>
                 <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
             </tr>
             `
