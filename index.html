@@ -19,6 +19,7 @@
 		
 		<link rel="stylesheet" href="fonts.css">
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="bootstrap.css">
 		<link rel="shortcut icon" href="FIB_logoC.png?" sizes="32x32" type="image/png">
 		
 		<meta content="FIB Bußgeldrechner" property="og:title" />
@@ -31,57 +32,59 @@
 		<link rel="stylesheet" href="notifications.css">
 		<script src="notifications.js"></script>
 	</head>
-
+		
 	<body>
-		<div id="header" class="sticky-top bg-naving container">
-			<div class="d-flex sticky-top flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 bg-transparent box-shadow" data-v-bf99c2de="">
-				<a href="/" class="router-link-active router-link-exact-active d-flex my-0 mr-md-auto gap-1 align-items-center gap-3 flex-column px-2" data-v-bf99c2de="" aria-current="page">
-					<img width="100" src="https://kadentrapstar.github.io/bussgeldmanager/FIB_logoC.png" alt="" data-v-bf99c2de="">
-				</a>
-				<nav class="my-2 my-md-0 mr-md-3" data-v-bf99c2de="">
-					<a target="_blank" href="https://fib.states-grand.com/leitstelle" class="p-3 text-white" data-v-bf99c2de="">FIB Leitstelle</a>
-					<a target="_blank" href="https://docs.google.com/spreadsheets/d/1c5lMFTcck5ihpSBAI6JnR27ZEGuDDCXy0wDcfPlDLRg/edit#gid=349173045" class="p-3 text-white" data-v-bf99c2de="">Off. Bußgeldkatalog</a>
-					<a target="_blank" href="https://states-grand.com/" class="p-3 text-warning" data-v-bf99c2de="">States Panel</a>
+		<div id="header" class="sticky-top bg-naving container" style="width: 1980px;height: 150px;">
+			<div class="d-flex sticky-top flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 bg-transparent box-shadow">
+				<img width="100" src="https://kadentrapstar.github.io/bussgeldmanager/FIB_logoC.png" alt="FIB Logo">
+				
+				<nav class="navbar navbar-expand-lg align-items-center justify-content-between p-3 px-md-4 bg-transparent box-shadow">
+					<a class="navbar-brand" href="#">FIB Bußgeldrechner</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="https://FIB.States-grand.com/leitstelle">FIB Leitstelle <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://docs.google.com/spreadsheets/d/1c5lMFTcck5ihpSBAI6JnR27ZEGuDDCXy0wDcfPlDLRg/edit#gid=349173045">Offizieller Bußgeldkatalog</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://States-grand.com/">States Panel</a>
+							</li>			
+						</ul>
+				  </div>
 				</nav>
 			</div>
 		</div>	
-		
-		<!---<div>
-			<div id="title">FIB Bußgeldrechner</div>
-			<div id="credits">- Dylan Trapstar</div>
-			<div id="searchbar"><input id="searchbar_input" oninput="JavaScript:searchFine()" type="text" placeholder="Nach einer Straftat suchen"></div>
-		</div>--->
-		
 	
 		<div id="stickbox">
 			<div id="sticklist">
 				<table>
 					<tr class="stickHeader">
-						<th style="width: 10%;">Paragraph</th>
-						<th style="width: 50%;">Strafbestand</th>
-						<th style="width: 25%;">Ausschließung</th>
-						<th style="width: 7%;">Haftstrafe</th>
-						<th style="width: 7%;">Bußgeld</th>
-						<th style="width: 7%;">Übergabe FIB</th>
-						<th style="width: 7%;">Übergabe StA</th>
-						<th style="width: 7%;">Kaution:</th>
+						<th style="width: 25%;">Paragraph</th>
+						<th style="width: 32%;">Straftat</th>
+						<th style="width: 20%;">Ausschließung</th>
+						<th style="width: 33%;">Wanteds / Bußgeld</th>
+						<th style="width: 40%;">Sonstige Information</th>
 					</tr>
 				</table>
 			</div>
-		</div>		
+		</div>	
 
 		<div id="contentbox">
 			<div id="fineslist">
 				<table>
 					<tr id="finesHeader">
-						<th style="width: 10%;"></th> <!-- Paragraph -->
-						<th style="width: 50%;"></th> <!-- Strafbestand -->
+						<th style="width: 7%;"></th> <!-- Paragraph -->
+						<th style="width: 40%;"></th> <!-- Straftat -->
 						<th style="width: 25%;"></th> <!-- Ausschließung -->
-						<th style="width: 7%;"></th> <!-- Haftstrafe -->
-						<th style="width: 7%;"></th> <!-- Bußgeld -->
-						<th style="width: 7%;"></th> <!-- Übergabe FIB -->
-						<th style="width: 7%;"></th> <!-- Übergabe StA -->
-						<th style="width: 7%;"></th> <!-- Kaution: -->
+						<th style="width: 6%;"></th> <!-- Haftstrafe -->
+						<th style="width: 6%;"></th> <!-- Bußgeld -->
+						<th style="width: 30%;"></th> <!-- Sonstige Info -->
 					</tr>
 					<tr class="categoryHeader">
 						<th></th>
@@ -92,774 +95,620 @@
 						<td class="fineText">Hausfriedensbruch</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success"" data-fineamount="15000">$15.000</td>
+						<td class="additional"><span class="badge bg-info">Antragsdelikt</span></td>			
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§9 StGB</td>
 						<td class="fineText">Beleidigung</td>
 						<td class="exclusion">§9.2 StGB</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>					
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>					
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§9.2 StGB</td>
 						<td class="fineText">Beleidigung (schwerer Fall)</td>
 						<td class="exclusion">§9 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="40000">$40.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>				
+						<td class="fineAmount text-success" data-fineamount="40000">$40.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>				
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§10 StGB</td>
 						<td class="fineText">Üble Nachrede / Verleumdung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!---  / Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§11 StGB</td>
 						<td class="fineText">Sachbeschädigung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="7500">$7.500</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="7500">$7.500</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- / Antragsdelikt --->
-						<td class="paragraph">StGB §12</td>
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
+						<td class="paragraph">§12 StGB</td>
 						<td class="fineText">Körperverletzung</td>
 						<td class="exclusion">§12a & §29 StGB</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>				
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
-						<td class="paragraph">StGB §12a</td>
+						<td class="paragraph">§12a StGB</td>
 						<td class="fineText">Gefährliche Körperverletzung</td>
 						<td class="exclusion">§12 & §29 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"><span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§13 StGB</td>
 						<td class="fineText">Freiheitsberaubung</td>
 						<td class="exclusion">§13.2, §14 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>	
 					</tr>					
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§13.2 StGB</td>
 						<td class="fineText">Freiheitsberaubung (schwerer Fall)</td>
 						<td class="exclusion">§13, §14 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"></td>	
 					</tr>					
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§14 StGB</td>
 						<td class="fineText">Geiselnahme</td>
 						<td class="exclusion">§13, §13.2, §16, §17, §18, §19 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="80000">$80.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="80000">$80.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span></td>	
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§15 StGB</td>
 						<td class="fineText">Bildung von bewaffneten Gruppierungen</td>
 						<td class="exclusion">§15a StGB</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"></td>				
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§15a StGB</td>
 						<td class="fineText">Bildung krimineller Organisationen</td>
 						<td class="exclusion">§15 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§16 StGB</td>
 						<td class="fineText">Erpressung</td>
 						<td class="exclusion">§19 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"></td>					
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§16.2 StGB</td>
 						<td class="fineText">Erpressung (schwerer Fall)</td>
 						<td class="exclusion">§19 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="40000">$40.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="40000">$40.000</td>
+						<td class="additional"></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§17 StGB</td>
 						<td class="fineText">Diebstahl</td>
 						<td class="exclusion">§18 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"><span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§18 StGB</td>
 						<td class="fineText">Raub</td>
 						<td class="exclusion">§16, §17 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="40000">$40.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="40000">$40.000</td>
+						<td class="additional"></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§18.3 StGB</td>
 						<td class="fineText">Raub (schwerer Fall)</td>
 						<td class="exclusion">§16, §17 & §39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="60000">$60.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="60000">$60.000</td>
+						<td class="additional"></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§19 StGB</td>
 						<td class="fineText">Betrug</td>
 						<td class="exclusion">§16 StGB</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"></td>	
 					</tr>				
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§19.2 / §19.3 StGB</td>
 						<td class="fineText">Betrug (schwerer Fall)</td>
 						<td class="exclusion">§16 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§20 StGB</td>
 						<td class="fineText">Hehlerei</td>
 						<td class="exclusion">§20.2 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§20.2 StGB</td>
 						<td class="fineText">Hehlerei (schwerer Fall)</td>
 						<td class="exclusion">§20 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"></td>	
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§21 StGB</td>
 						<td class="fineText">Urkundenfälschung</td>
 						<td class="exclusion">§20 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§22 StGB</td>
 						<td class="fineText">Dienstvergehen</td>
 						<td class="exclusion">§22a StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span></td>	
 					</tr>			
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§22a StGB</td>
 						<td class="fineText">Schweres Dienstvergehen</td>
 						<td class="exclusion">§22 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>	
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Bußgeld nach Sachlage  --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§23 StGB</td>
 						<td class="fineText">Unterlassene Hilfeleistung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>	
 					</tr>						
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§24 StGB</td>
 						<td class="fineText">Totschlag</td>
 						<td class="exclusion">§12, §12a & §25 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§25 StGB</td>
 						<td class="fineText">Mord</td>
 						<td class="exclusion">§12, §12a & §24 StGB</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§26 StGB</td>
 						<td class="fineText">Falsche Verdächtigung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§27 StGB</td>
 						<td class="fineText">Meineid</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span> <span class="badge bg-success">Kaution</span></td>	
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§28 StGB</td>
 						<td class="fineText">Widerstand gegen Vollstreckungsbeamte</td>
 						<td class="exclusion">§28.3 & §29 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§28.3 StGB</td>
 						<td class="fineText">Widerstand gegen Vollstreckungsbeamte (schwerer Fall)</td>
 						<td class="exclusion">§28 & §29 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"></td>	
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§29 StGB</td>
 						<td class="fineText">Tätlicher Angriff auf Vollstreckungsbeamte</td>
 						<td class="exclusion">§12, §12a, §28 & §28.3 StGB</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"></td>	
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§30 StGB</td>
 						<td class="fineText">Gefangenenbefreiung</td>
 						<td class="exclusion">§30.7 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§30.7 StGB</td>
 						<td class="fineText">Gefangenenbefreiung (schwerer Fall)</td>
 						<td class="exclusion">§30.7 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="60000">$60.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="60000">$60.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§31 StGB</td>
 						<td class="fineText">Gefangenenmeuterei</td>
 						<td class="exclusion">§31.5 StGB</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§31.5 StGB</td>
 						<td class="fineText">Gefangenenmeuterei (schwerer Fall)</td>
 						<td class="exclusion">§31 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Beim Verkauf am Shop 5 Wanteds --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§32 StGB</td>
 						<td class="fineText">Besitz illegaler Gegenstände</td>
 						<td class="exclusion">§32.3 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="35000">$35.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
+						<td class="additional"><span class="badge bg-black">5 Wtds bei Shop Handel</span></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Beim Verkauf am Shop 5 Wanteds --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§32.3 StGB</td>
 						<td class="fineText">Besitz illegaler Gegenstände (schwerer Fall)</td>
 						<td class="exclusion">§32 StGB</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-black">5 Wtds bei Shop Handel</span></td>	
 					</tr>		
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Übergabe FIB & Beim Verkauf am Shop 5 Wanteds --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§33 StGB</td>
-						<td class="fineText">Besitz von staatlichem Eigentum</td>
+						<td class="fineText">Besitz von Staatlichem Eigentum</td>
 						<td class="exclusion">§33.3 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="60000">$60.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="60000">$60.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-black">5 Wtds bei Shop Handel</span></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Übergabe FIB & Beim Verkauf am Shop 5 Wanteds --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§33.3 StGB</td>
-						<td class="fineText">Besitz von staatlichem Eigentum (schwerer Fall)</td>
+						<td class="fineText">Besitz von Staatlichem Eigentum (schwerer Fall)</td>
 						<td class="exclusion">§33 StGB</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="100000">$100.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="100000">$100.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-black">5 Wtds bei Shop Handel</span></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Einzelhaft --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§34 StGB</td>
 						<td class="fineText">Sexuelle Belästigung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-warning">Einzelhaft</span> <span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- schwerer Fall möglich --->
 						<td class="paragraph">§35 StGB</td>
 						<td class="fineText">Sicherheitsbereiche / Landfriedensbruch</td>
 						<td class="exclusion">§36 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="70000">$70.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
-					</tr>	
+						<td class="fineAmount text-success" data-fineamount="70000">$70.000</td>
+						<td class="additional"><span class="badge bg-warning">Einzelhaft</span></td>	
+					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§36 StGB</td>
 						<td class="fineText">Ruhezone</td>
 						<td class="exclusion">§35 StGB</td>
 						<td class="wantedAmount" data-wantedamount="5">⭐⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="60000">$60.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="60000">$60.000</td>
+						<td class="additional"><span class="badge bg-warning">Einzelhaft</span></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§37 StGB</td>
 						<td class="fineText">Amtsanmaßung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="35000">$35.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>	
 					</tr>			
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§38 StGB</td>
 						<td class="fineText">Amtsmissbrauch</td>
 						<td class="exclusion">§39 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="45000">$45.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="45000">$45.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>	
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- / Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§39 StGB</td>
 						<td class="fineText">Nötigung / Bedrohung</td>
 						<td class="exclusion">§38 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§40 StGB</td>
 						<td class="fineText">Missbrauch von Notrufen und Beeinträchtigung von Nothilfemitteln</td>
 						<td class="exclusion">§38 StGB</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>	
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§41 StGB</td>
 						<td class="fineText">Vermummung in der Öffentlichkeit</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>				
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§42 StGB</td>
 						<td class="fineText">Verweigerung der Identitätsfeststellung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Antragsdelikt --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§43 StGB</td>
 						<td class="fineText">Bestechung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§44 StGB</td>
 						<td class="fineText">Tierquälerei</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§45 StGB</td>
 						<td class="fineText">Hochverrat</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§46 StGB</td>
 						<td class="fineText">Stalking</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="35000">$35.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Einzelhaft --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§47 StGB</td>
 						<td class="fineText">Behinderung von Ermittlungsverfahren</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-warning">Einzelhaft</span></td>				
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§48 StGB</td>
 						<td class="fineText">Erregung öffentlichen Ärgernisses</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Einzelhaft --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§49 StGB</td>
 						<td class="fineText">Terroristischer Akt</td>
 						<td class="exclusion">§18 & §25 StGB</td>
 						<td class="wantedAmount" data-wantedamount="5">⭐⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="100000">$100.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="100000">$100.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span> <span class="badge bg-warning">Einzelhaft</span></td>
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Einzelhaft --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§49a StGB</td>
 						<td class="fineText">Terrorismusfinanzierung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="5">⭐⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="100000">$100.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="100000">$100.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span> <span class="badge bg-warning">Einzelhaft</span></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§50 StGB</td>
 						<td class="fineText">Inverkehrbringen von medizinischen Mitteln</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="350000">$35.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="350000">$35.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§50.2 StGB</td>
 						<td class="fineText">Inverkehrbringen von medizinischen Mitteln (schwerer Fall)</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§51 StGB</td>
 						<td class="fineText">Erschleichen von Leistungen</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="35000">$35.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span> <span class="badge bg-info">Antragsdelikt</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§52 StGB</td>
 						<td class="fineText">Unerlaubte Veranstaltung von Glücksspiel</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span> <span class="badge bg-success">Kaution</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> 
 						<td class="paragraph">§52.2 StGB</td>
 						<td class="fineText">Unerlaubte Veranstaltung von Glücksspiel (schwerer Fall)</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="150000">$150.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="150000">$150.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span></td>
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§53 StGB</td>
 						<td class="fineText">Beteiligung am unerlaubten Glücksspiel</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="35000">$35.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!---  Einzelhaft--->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§54 StGB</td>
 						<td class="fineText">Wahlbehinderung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span> <span class="badge bg-warning">Einzelhaft</span></td>
 					</tr>	
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Einzelhaft --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§54.2 StGB</td>
 						<td class="fineText">Wahlbehinderung (schwerer Fall)</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="45000">$45.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="45000">$45.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span> <span class="badge bg-warning">Einzelhaft</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§55 StGB</td>
 						<td class="fineText">Wählernötigung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>
 					</tr>			
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§55.2 StGB</td>
 						<td class="fineText">Wählernötigung (schwerer Fall)</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="40000">$40.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="40000">$40.000</td>
+						<td class="additional"></td>
 					</tr>									
 					<tr class="categoryHeader">
 						<th></th>
 						<th>Waffengesetz (WaffG)</th>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§5.1 WaffG</td>
 						<td class="fineText">Besitz illegaler Waffen (inkl. Munition)</td>
 						<td class="exclusion">§5.4 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§5.2 WaffG</td>
 						<td class="fineText">Besitz legaler Waffen ohne Seriennummer</td>
 						<td class="exclusion">§5.3 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"><span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§5.3 WaffG</td>
 						<td class="fineText">Besitz einer legalen Waffe ohne Lizenz</td>
 						<td class="exclusion">§5.2 & §5.4 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"><span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Munition --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§5.4 WaffG</td>
 						<td class="fineText">Besitz von Munition ohne Lizenz</td>
 						<td class="exclusion">§5.3 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"><span class="badge bg-secondary">Munition konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> 
 						<td class="paragraph">§6.2 WaffG</td>
 						<td class="fineText">Unerlaubte Waffennutzung</td>
 						<td class="exclusion">§12a, §15a §24 & §25 StGB</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">  <!--- Analog & Übergabe FIB --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§6.3 WaffG</td>
 						<td class="fineText">Waffenscheinweitergabe</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>		
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§6.4 WaffG</td>
 						<td class="fineText">Verstoß gegen eine Waffenverbotszone</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"><span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>						
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§7.1 WaffG</td>
 						<td class="fineText">Unerlaubter Waffenhandel legaler Waffen</td>
 						<td class="exclusion">§7.2 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="4">⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="70000">$70.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="70000">$70.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span> <span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffe --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§7.2 WaffG</td>
 						<td class="fineText">Unerlaubter Waffenhandel illegaler Waffen</td>
 						<td class="exclusion">§7.1 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="5">⭐⭐⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="90000">$90.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="90000">$90.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span> <span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false"> <!--- Konfiszierung d. Waffenteile --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
 						<td class="paragraph">§9 WaffG</td>
 						<td class="fineText">Besitz von Waffenteilen</td>
 						<td class="exclusion">§7.1 WaffG</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="35000">$35.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-secondary">Waffen konfiszieren</span></td>
 					</tr>
 					<tr class="categoryHeader">
 						<th></th>
@@ -870,84 +719,67 @@
 						<td class="fineText">Anbau von Betäubungsmitteln</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§4 BtMG</td>
 						<td class="fineText">Besitz von Betäubungsmitteln</td>
 						<td class="exclusion">Straffrei: Weedjoint (7 Stk.)</td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="5000">$5.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>
+						<td class="fineAmount text-success" data-fineamount="5000">$5.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§5 BtMG</td>
 						<td class="fineText">Handel von Betäubungsmitteln</td>
 						<td class="exclusion">§4 BtMG</td>
 						<td class="wantedAmount" data-wantedamount="3">⭐⭐⭐</td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB"><p style="color:green;">Ja</p></td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
-					</tr>	
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"><span class="badge bg-black">FIB </span> <span class="badge bg-danger">StA</span></td>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§6 BtMG</td>
 						<td class="fineText">Konsum von Betäubungsmitteln</td>
 						<td class="exclusion">Straffrei: Weedkonsum</td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="4000">$4.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="4000">$4.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="categoryHeader">
 						<th></th>
 						<th>Handelsgesetzbuch (HGB)</th>
 					</tr>
-					<tr class="showing fine" onclick="JavaScript:selectFine(event)"> <!--- Übergabe StA --->
+					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§3 HGB</td>
 						<td class="fineText">Steuerhinterziehung (Vorsatz)</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA"><p style="color:green;">Ja</p></td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-danger">StA</span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§3a HGB</td>
 						<td class="fineText">Steuerhinterziehung (Mahnstufe I)</td>
 						<td class="exclusion">§3 HGB</td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§3b HGB</td>
 						<td class="fineText">Steuerhinterziehung (Mahnstufe II)</td>
 						<td class="exclusion">§3 HGB</td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
 						<td class="paragraph">§3c HGB</td>
 						<td class="fineText">Erforderliche Schließung</td>
 						<td class="exclusion">§3 HGB</td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="categoryHeader">
 						<th></th>
@@ -958,230 +790,185 @@
 						<td class="fineText">Lärmbelästigung durch Musik/Hupen im Fahrzeug</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §2.5</td>
 						<td class="fineText">Nichtmitführen eines Reparatur- und Medikits im Kofferraum</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="2500">$2.500</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>		
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success" data-fineamount="2500">$2.500</td>
+						<td class="additional"></td>				
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §2.8</td>
 						<td class="fineText">Fehlende KFZ Registrierung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="20000">$20.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>						
+						<td class="fineAmount text-success" data-fineamount="20000">$20.000</td>
+						<td class="additional"></td>					
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §2.10</td>
 						<td class="fineText">Teilnahme am Straßenverkehr unter Alkohol/Btm</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="15000">$15.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="15000">$15.000</td>
+						<td class="additional"></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §2.13</td>
 						<td class="fineText">Fahren mit einem fahruntüchtigen Fahrzeug</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="2000">$2.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="2000">$2.000</td>
+						<td class="additional"></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §4.3</td>
 						<td class="fineText">Fahren abseits befestigter Straßen</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="5000">$5.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="5000">$5.000</td>
+						<td class="additional"></td>
 					</tr>		
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
-						<td class="paragraph">StVO §5</td>
+						<td class="paragraph">§5 StVO</td>
 						<td class="fineText">Gefährlicher Eingriff in den Straßenverkehr</td>
 						<td class="exclusion">Alle, bis auf §2.8, §15 & §16 StVO</td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="30000">$30.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>					
+						<td class="fineAmount text-success" data-fineamount="30000">$30.000</td>
+						<td class="additional"></td>				
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false"> <!-- Analog -->
 						<td class="paragraph">StVO §5.2a</td>
 						<td class="fineText">Fahren entgegen der Fahrtrichtung</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="5000">$5.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="5000">$5.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="true"> <!-- Analog -->
 						<td class="paragraph">StVO §5.2b</td>
 						<td class="fineText">Missachtung der Mindestflughöhe</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>	
 					</tr>			
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §5.4</td>
 						<td class="fineText">Behinderung von Einsatzfahrzeugen mit Sondersignalen</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"></td>	
 					</tr>	
 					<tr class="showing fine addPlateInList" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §6a</td>
 						<td class="fineText">Geschwindigkeitsüberschreitung 25-100 km/h</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>				
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine addPlateInList" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §6b</td>
 						<td class="fineText">Geschwindigkeitsüberschreitung 101-200 km/h</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="60000">$60.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="60000">$60.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine addPlateInList" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §6c</td>
 						<td class="fineText">Geschwindigkeitsüberschreitung über 201 km/h</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="125000">$125.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="125000">$125.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §7.1</td>
 						<td class="fineText">Missachtung von Stoppschildern / Stopp Markierungen</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="25000">$25.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="25000">$25.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §7.3</td>
 						<td class="fineText">Missachtung von Wendeverbotsschildern</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="5000">$5.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>	
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="5000">$5.000</td>
+						<td class="additional"></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §8.2</td>
 						<td class="fineText">Überholen auf Straßen mit durchgezogener Linie</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="12500">$12.500</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>		
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="12500">$12.500</td>
+						<td class="additional"></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §8.5</td>
 						<td class="fineText">Missachtung der Vorfahrtsregel "Rechts vor Links"</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>		
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"></td>	
 					</tr>
 					<tr class="showing fine addPlateInList" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §9</td>
 						<td class="fineText">Unzulässiges Halten und Parken</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §10.3</td>
 						<td class="fineText">Illegales Straßenrennen</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="45000">$45.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>	
+						<td class="fineAmount text-success" data-fineamount="45000">$45.000</td>
+						<td class="additional"></td>
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false"> <!--Kaution -->
-						<td class="paragraph">StVO §11.5</td>
+						<td class="paragraph">§11.5 StVO</td>
 						<td class="fineText">Unerlaubtes Entfernen vom Unfallort (Fahrerflucht)</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="1">⭐</td>
-						<td class="fineAmount" data-fineamount="50000">$50.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>	
+						<td class="fineAmount text-success" data-fineamount="50000">$50.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="true"> <!--Kaution -->
-						<td class="paragraph">StVO §13.1</td>
+						<td class="paragraph">§13.1 StVO</td>
 						<td class="fineText">Nichtgenehmigtes Starten/Landen von Fluggeräten</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail"><p style="color:green;">Ja</p></td>					
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>						
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false" data-removeflylicence="false">
-						<td class="paragraph">StVO §15</td>
+						<td class="paragraph">§15 StVO</td>
 						<td class="fineText">Verbautes Anti-Radar in einem Fahrzeug</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount" data-fineamount="10000">$10.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="10000">$10.000</td>
+						<td class="additional"><span class="badge bg-success">Kaution</span></td>	
 					</tr>
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="true" data-removeweaponlicence="false" data-removeflylicence="false">
 						<td class="paragraph">StVO §16</td>
 						<td class="fineText">Missachtung von Stopp-Anforderungen der Beamten</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="0"></td>
-						<td class="fineAmount" data-fineamount="75000">$75.000</td>
-						<td class="handingOverFIB">-</td>
-						<td class="handingOverStA">-</td>
-						<td class="bail">-</td>
+						<td class="fineAmount text-success" data-fineamount="75000">$75.000</td>
+						<td class="additional"></td>	
+						
 					</tr>
 					</br>
 					</br>				
@@ -1191,43 +978,39 @@
 			<div id="results">
 				<div id="resultsTitle">Ergebnis</div>
 				</br>
-				<div class="result" id="fineResult"><b>Geldstrafe:</b> $0</div>
-				<div class="result" id="wantedsResult"><b>Wanteds:</b> 0</div>
-				<div class="result" id="reasonResult"><b>Grund:</b></div>
+				<div class="result text-success" id="fineResult"><b>Geldstrafe:</b> $0</div>
+				<div class="result text-warning" id="wantedsResult"><b>Wanteds:</b> 0</div>
+				</br>
+				<div class="result" id="reasonResult"><b>Grund:</b><br><br></div>
+				<div class="result" id="fineOutput"><b>Bußgelder:</b></div>
 				</br>
 				<div class="result" id="infoResult"><b>Information:</b></div>
-
-				<div id="checkbox">
-					<input id="checkbox_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
-					<label style="line-height: 25px;" for="checkbox_box">Kurzer Grund</label>
-				</div>
 				
-				<div id="plateInput"><input id="plateInput_input" type="text" maxlength="8" placeholder="Kennzeichen" oninput="JavaScript:startCalculating()"></div>
-				<div id="blitzerInput"><input id="blitzerInput_input" type="time" class="form-control text-warning" maxlength="8" placeholder="Time" oninput="JavaScript:startCalculating()"></div>
-				<div id="systemwantedsInput"><input id="systemwantedsInput_input" type="text" maxlength="1" placeholder="Vorherige Wanteds" oninput="JavaScript:startCalculating()"></div>
+				<div id="blitzerInput"><input id="blitzerInput_input" type="time" class="form-control text-warning" maxlength="8" placeholder="Time" oninput="JavaScript:StartCalculating()"></div>
+				<div id="systemwantedsInput"><input id="systemwantedsInput_input" type="text" maxlength="1" placeholder="Vorherige Wanteds" oninput="JavaScript:StartCalculating()"></div>
 				
 				<div id="übergabeInput">
-					<select name="" id="übergabeInput_select" onchange="JavaScript:startCalculating()">
+					<select name="" id="übergabeInput_select" onchange="JavaScript:StartCalculating()">
 						<option value="none">TV-Abtransport auswählen</option>
 						<option value="lspd">Los Santos Police Department</option>
 						<option value="sahp">San Andreas Highway Patrol</option>
 						<option value="ng">National Guard</option>
-						<option value="usss">United States Secret Service</option>
-						<option value="fib">Federal Investigation Bureau</option>
+						<option value="usss">United <span class="badge bg-danger">StA</span>tes Secret Service</option>
+						<option value="<span class="badge bg-black">FIB </span>">Federal Investigation Bureau</option>
 					</select>
-					<input id="übergabeInput_input" type="text" oninput="JavaScript:startCalculating()" placeholder="TV-Abstransport in Auftrag von?" maxlength="64">
+					<input id="übergabeInput_input" type="text" oninput="JavaScript:StartCalculating()" placeholder="TV-Abstransport in Auftrag von?" maxlength="64">
 				</div>
 
 				<div id="notepadArea"><textarea id="notepadArea_input" name="" placeholder="Schreibe deine Notizen hier rein..." id="" rows="3"></textarea></div>
 				
 				
 				<div id="reue">
-					<input id="reue_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
+					<input id="reue_box" onchange="JavaScript:StartCalculating()" type="checkbox" name="">
 				  <!---  <label for="reue_box"><font id="checkboxfont1" style="line-height: 25px;">Reue</font><br><font style="font-size: 15px; font-weight: 400;">(Entfernt 2 Wanteds, 1 Wanted muss verbleiben gemäß StBG §35 - Reue)</font></label> --->
 				</div>
 				
 				<div id="systemfehler">
-					<input id="systemfehler_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
+					<input id="systemfehler_box" onchange="JavaScript:StartCalculating()" type="checkbox" name="">
 					<label style="line-height: 25px;" for="systemfehler_box">Systemfehler</label>
 				</div>
 
@@ -1253,7 +1036,7 @@
 				<iframe src="https://docs.google.com/spreadsheets/d/14Bexj26waEBob7ufdSy0ilHATO61I9HuL1iAH6TRBqI/edit?usp=sharing&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 			</div>
 
-			<div id="standartNotifications">
+			<div id="StandartNotifications">
 			</div>
 		</div>
 	</body>

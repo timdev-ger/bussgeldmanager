@@ -39,7 +39,7 @@ function startCalculating() {
     let fineResult = document.getElementById("fineResult")
     let wantedResult = document.getElementById("wantedsResult")
     let reasonResult = document.getElementById("reasonResult")
-    let plate = document.getElementById("plateInput_input").value
+	// let fineOutput = document.getElementById("fineOutput")
     let systemwanteds = document.getElementById("systemwantedsInput_input").value
     let blitzerort = document.getElementById("blitzerInput_input").value
     let infoResult = document.getElementById("infoResult")
@@ -47,16 +47,16 @@ function startCalculating() {
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
 	
 	let reasonText = ""
+	let wantedText = ""
     let noticeText = ""
+	let fineListing = ""
 	
     let removeWeaponLicense = false
     let removeDriverLicense = false
-	let shortMode = false
 	
+	let splitAmount = 0
     let wantedAmount = 0
 	let fineAmount = 0	
-	
-    if (document.getElementById("checkbox_box").checked) shortMode = true
 
     let fineCollection = document.querySelectorAll(".selected")
     let fineCollectionWantedAmount = []
@@ -139,54 +139,21 @@ function startCalculating() {
         } else {
             fineText = fineCollection[i].querySelector(".fineText").innerHTML
         }
-
-         if (shortMode) {
-            if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
-            } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
-            }
-        } else {
-            if (reasonText == "") {
-                reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
-            } else {
-                reasonText += ` - ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}`
-            }
-        }
-
+		
+	
+		if (reasonText == "") {
+			reasonText = `${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+		} else {
+			reasonText += ` ${fineCollection[i].querySelector(".paragraph").hasAttribute("data-paragraphAddition") ? fineCollection[i].querySelector(".paragraph").getAttribute("data-paragraphAddition") + " " : ""}${fineCollection[i].querySelector(".paragraph").innerHTML}`
+		}
+		
         if (fineCollection[i].getAttribute("data-removedriverlicence") == "true") removeDriverLicense = true
         if (fineCollection[i].getAttribute("data-removeweaponlicence") == "true") removeWeaponLicense = true
-
-        
-
-         if (fineCollection[i].classList.contains("addPlateInList")) {
-
-            document.getElementById("finesListTable").innerHTML +=
-            `
-            <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} ${fineText}${plate !== "" ? " | " + plate.toLocaleUpperCase() : ""}${blitzerort !== "" ? " | " + blitzerort : ""}</td>
-                <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
-            </tr>
-            `
-        } else {
-            document.getElementById("finesListTable").innerHTML +=
-            `
-            <tr class="finesList_fine">
-                <td onclick="JavaScript:copyText(event)">${day}.${month} ${hour}:${minute} | ${fineCollection[i].querySelector(".paragraph").innerHTML} + ${fineText}</td>
-                <td>$${parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount")) + extrafines_amount}</td>
-            </tr>
-            `
-        }
-
     }
 
     if (document.getElementById("reue_box").checked && wantedAmount !== 0) { // Means "reue" is active
         wantedAmount = wantedAmount - 2
         if (wantedAmount < 1) wantedAmount = 1
-    }
-
-    if (plate != "") {
-        reasonText += ` - ${plate.toLocaleUpperCase()}`
     }
 
     if (blitzerort != "") {
@@ -225,12 +192,60 @@ function startCalculating() {
     if (tvübergabe_org !== "none" && tvübergabe_name !== "") {
         reasonText += ` - @${tvübergabe_org.toLocaleUpperCase()} ${tvübergabe_name}`
     }
-
-
+	
+	if (fineAmount > 0) {
+		let splitAmount = Math.ceil(fineAmount / 50000);
+		
+		console.log(splitAmount)
+		
+		if (splitAmount < 1) {
+			splitAmount = 1
+		} 
+		if (splitAmount >= 1.1 && splitAmount <= 1.5) {
+			splitAmount = 2
+		} 
+		if (splitAmount >= 2.1 && splitAmount <= 2.5) {
+			splitAmount = 3
+		} 
+		if (splitAmount >= 3.1 && splitAmount <= 3.5) {
+			splitAmount = 4
+		}
+		if (splitAmount >= 4.1 && splitAmount <= 4.5) {
+			splitAmount = 5
+		}
+		
+		for (var i = 1; i <= splitAmount; i++) {
+			
+			if (fineListing == "") {
+				fineListing = `<font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText} | $${fineAmount} | ${i}/${splitAmount}</font><br>`
+			} else {
+				fineListing += `<font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText} | $${fineAmount} | ${i}/${splitAmount}</font><br>`
+			}
+		}
+		
+		if (wantedAmount == 1) {
+			reasonText += ` | ⭐`
+			wantedText = `⭐`
+		} else if (wantedAmount == 2) {
+			reasonText += ` | ⭐⭐`
+			wantedText = `⭐⭐`
+		} else if (wantedAmount == 3) {
+			reasonText += ` | ⭐⭐⭐`
+			wantedText = `⭐⭐⭐`
+		} else if (wantedAmount == 4) {
+			reasonText += ` | ⭐⭐⭐⭐`
+			wantedText = `⭐⭐⭐⭐`
+		} else if (wantedAmount == 5) {
+			reasonText += ` | ⭐⭐⭐⭐⭐`
+			wantedText = `⭐⭐⭐⭐⭐`
+		}
+	}
+	
     infoResult.innerHTML = `<b>Information:</b> ${noticeText}`
     fineResult.innerHTML = `<b>Geldstrafe:</b> <font style="user-select: all;">$${fineAmount}</font>`
     wantedResult.innerHTML = `<b>Wanteds:</b> <font style="user-select: all;">${wantedAmount}</font>`
-    reasonResult.innerHTML = `<b>Grund:</b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font>`
+    reasonResult.innerHTML = `<b>Grund:<br></b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font><br><br>`
+	fineOutput.innerHTML = `<b>Bußgelder:<br></b> ${fineListing}<br><br>`
 
 }
 
@@ -286,7 +301,6 @@ function resetButton() {
         fineCollection[i].classList.remove("selected")
     }
 
-    document.getElementById("plateInput_input").value = ""
     document.getElementById("blitzerInput_input").value = ""
     document.getElementById("systemwantedsInput_input").value = ""
 

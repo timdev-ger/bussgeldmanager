@@ -14,13 +14,12 @@
     color: var(--textprim);
 }
 
-html {  
-    height: 100%; 
-}
+
+html {  height: 100%; }
 
 body {
     width: 100%;
-    height: 65%;
+    height: 100%;
     margin: 0px;
     background-color: var(--background);
 
@@ -29,10 +28,14 @@ body {
 
 #header {
     width: 100%;
-    height: 20%;
+    height: 50%;
 
     background-color: var(--inputs);
-
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
     display: grid;
     grid-template-columns: 33.333% 33.333% 33.333%;
 }
@@ -72,6 +75,24 @@ body {
     text-indent: 5px;
 }
 
+#contentbox {
+    width: 100%;
+    height: 93%;
+
+    position: absolute;
+    bottom: 0;
+
+    background-color: var(--inputs);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
 #stickbox {
     width: 100%;
     height: 83%;
@@ -101,7 +122,9 @@ body {
     background-color: var(--inputs);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	
     display: grid;
     grid-template-columns: 75% 25%;
 }
@@ -621,7 +644,7 @@ select {
     width: 95%;
     margin-top: 10px;
     left: 2.5%;
-    border-spacing: 3px;
+    border-spacing: 10px;
 
     color: white;
     text-align: center;
