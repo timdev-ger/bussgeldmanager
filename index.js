@@ -157,7 +157,7 @@ function startCalculating() {
     }
 
     if (blitzerort != "") {
-        reasonText += ` - ${blitzerort}`
+        reasonText += ` | Cuffs: ${blitzerort}`
     }
 
     if (document.getElementById("reue_box").checked) {
