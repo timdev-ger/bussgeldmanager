@@ -29,6 +29,14 @@ function selectFine(event) {
     startCalculating()
 }
 
+function setCurrentTime() {
+	const input = document.getElementById('cuffTimeInput_Input');
+	const now = new Date();
+	const hours = String(now.getHours()).padStart(2, '0');
+	const minutes = String(now.getMinutes()).padStart(2, '0');
+	input.value = `${hours}:${minutes}`;
+}
+
 function startCalculating() {
 
     document.getElementById("finesListTable").innerHTML = `<tr>
@@ -41,7 +49,7 @@ function startCalculating() {
     let reasonResult = document.getElementById("reasonResult")
 	// let fineOutput = document.getElementById("fineOutput")
     let systemwanteds = document.getElementById("systemwantedsInput_input").value
-    let blitzerort = document.getElementById("blitzerInput_input").value
+    let blitzerort = document.getElementById("cuffTimeInput_Input").value
     let infoResult = document.getElementById("infoResult")
     let tvübergabe_org = document.getElementById("übergabeInput_select").value
     let tvübergabe_name = document.getElementById("übergabeInput_input").value
@@ -244,8 +252,8 @@ function startCalculating() {
     infoResult.innerHTML = `<b>Information:</b> ${noticeText}`
     fineResult.innerHTML = `<b>Geldstrafe:</b> <font style="user-select: all;">$${fineAmount}</font>`
     wantedResult.innerHTML = `<b>Wanteds:</b> <font style="user-select: all;">${wantedAmount}</font>`
-    reasonResult.innerHTML = `<b>Grund:<br></b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font><br><br>`
-	fineOutput.innerHTML = `<b>Bußgelder:<br></b> ${fineListing}<br><br>`
+    reasonResult.innerHTML = `<b>Grund:<br></b> <font style="user-select: all;" onclick="JavaScript:copyText(event)">${reasonText}</font><br>`
+	fineOutput.innerHTML = `<b>Bußgelder:<br></b> ${fineListing}<br>`
 
 }
 
@@ -301,7 +309,7 @@ function resetButton() {
         fineCollection[i].classList.remove("selected")
     }
 
-    document.getElementById("blitzerInput_input").value = ""
+    document.getElementById("cuffTimeInput_Input").value = ""
     document.getElementById("systemwantedsInput_input").value = ""
 
     document.getElementById("übergabeInput_select").value = "none"

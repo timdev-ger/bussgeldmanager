@@ -551,7 +551,7 @@
 						<td class="fineText">Inverkehrbringen von medizinischen Mitteln</td>
 						<td class="exclusion"></td>
 						<td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
-						<td class="fineAmount text-success" data-fineamount="350000">$35.000</td>
+						<td class="fineAmount text-success" data-fineamount="35000">$35.000</td>
 						<td class="additional"><span class="badge bg-black">FIB </span></td>
 					</tr>	
 					<tr class="showing fine" onclick="JavaScript:selectFine(event)">
@@ -979,15 +979,16 @@
 				<div id="resultsTitle">Ergebnis</div>
 				</br>
 				<div class="result text-success" id="fineResult"><b>Geldstrafe:</b> $0</div>
-				<div class="result text-warning" id="wantedsResult"><b>Wanteds:</b> 0</div>
-				</br>
-				<div class="result" id="reasonResult"><b>Grund:</b><br><br></div>
-				<div class="result" id="fineOutput"><b>Bußgelder:</b></div>
-				</br>
-				<div class="result" id="infoResult"><b>Information:</b></div>
+				<div class="result text-warning" id="wantedsResult"><b>Wanteds:</b> 0</div><br>
+				<div class="result" id="reasonResult"><b>Grund:</b></div><br>
+				<div class="result" id="fineOutput"><b>Bußgelder:</b></div><br>
+				<div class="result" id="infoResult"><b>Handschellenzeit:</b></div>
+				<div id="blitzerInput">
+					<input id="cuffTimeInput_Input" type="time" class="form-control text-warning" maxlength="8" placeholder="Time" oninput="JavaScript:StartCalculating()">
+					<button id="cuffTimeButton" type="Button" onclick="setCurrentTime()">Aktuelle Zeit</button>
+				</div><br>
 				
-				<div id="blitzerInput"><input id="blitzerInput_input" type="time" class="form-control text-warning" maxlength="8" placeholder="Time" oninput="JavaScript:StartCalculating()"></div>
-				<div id="systemwantedsInput"><input id="systemwantedsInput_input" type="text" maxlength="1" placeholder="Vorherige Wanteds" oninput="JavaScript:StartCalculating()"></div>
+				<div id="systemwantedsInput"><input id="systemwantedsInput_input" type="text" maxlength="1" placeholder="Vorherige Wanteds" oninput="JavaScript:StartCalculating()"></div><br>
 				
 				<div id="übergabeInput">
 					<select name="" id="übergabeInput_select" onchange="JavaScript:StartCalculating()">
