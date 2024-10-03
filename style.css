@@ -2,7 +2,7 @@
     --textprim: #bababa;
     --textsecond: #ffffff;
     --button: #2b2b2b;
-    --accent: #525600;
+    --accent: #AC5E1C;
     --buttonhover: #6565ff;
     --background: #1d1d1d;
     --inputs: #121212;
@@ -13,6 +13,7 @@
     font-family: ProximaNova, sans-serif;
     color: var(--textprim);
 }
+
 
 html {  height: 100%; }
 
@@ -27,12 +28,14 @@ body {
 
 #header {
     width: 100%;
-    height: 5%;
+    height: 50%;
 
     background-color: var(--inputs);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
     display: grid;
     grid-template-columns: 33.333% 33.333% 33.333%;
 }
@@ -82,15 +85,54 @@ body {
     background-color: var(--inputs);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 
+
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+#stickbox {
+    width: 100%;
+    height: 83%;
+
+    position: absolute;
+    bottom: 0;
+
+    background-color: var(--inputs);
+
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+#sticklist {
+    background-color: var(--background);
+    
+    margin: 3vh;
+}
+
+#contentbox {
+    width: 100%;
+    height: 75%;
+
+    position: absolute;
+    bottom: 0;
+
+    background-color: var(--inputs);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	
     display: grid;
     grid-template-columns: 75% 25%;
 }
 
 #fineslist {
     background-color: var(--background);
-    border-radius: 20px;
-    margin: 1vh;
+    
+    margin: 3vh;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -106,8 +148,7 @@ body {
 
 #results {
     background-color: var(--background);
-    border-radius: 20px;
-    margin: 1vh;
+    margin: 3vh;
     margin-left: 0;
 
     overflow-y: scroll;
@@ -119,13 +160,13 @@ body {
 #fineslist table {
     overflow: hidden;
 
-    margin-top: 2%;
+    margin-top: 0%;
 
     width: 100%;
 }
 
 #fineslist table {
-    border-spacing: 3px;
+    border-spacing: 1px;
 }
 
 #finesHeader th {
@@ -170,38 +211,38 @@ body {
 #resultsTitle {
     width: 100%;
     font-size: 3vh;
-    font-weight: 600;
+    font-weight: 250;
     color: white;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #infoTitle {
-    width: 90%;
+    width: 100%;
     position: relative;
-    left: 5%;
+    left: 50%;
 }
 
 #plateInput {
-    width: 90%;
+    width: 65%;
     position: relative;
     left: 5%;
 }
 
 #blitzerInput {
-    width: 90%;
+    width: 65%;
     position: relative;
     left: 5%;
 }
 
 #systemwantedsInput {
-    width: 90%;
+    width: 65%;
     position: relative;
     left: 5%;
 }
 
 .result {
-    width: 90%;
+    width: 100%;
     position: relative;
     left: 5%;
 }
@@ -225,7 +266,26 @@ body {
     text-indent: 5px;
 }
 
-#blitzerInput_input {
+#cuffTimeButton {
+    width: 50%;
+    height: 3vh;
+    background-color: var(--inputs);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5vh;
+
+    margin-top: 1vh;
+
+    tab-size: 0px;
+    outline: none;
+    box-sizing: border-box;
+    font-weight: 500;
+    color: white;
+
+    text-indent: 5px;
+}
+
+#cuffTimeInput_Input {
     width: 70%;
     height: 3vh;
     background-color: var(--inputs);
@@ -264,8 +324,8 @@ body {
 }
 
 .categoryHeader th {
-    color: var(--buttonhover);
-    font-size: 20px;
+    color: #FFFFFF;
+    font-size: 25px;
 }
 
 #resetButton {
@@ -609,7 +669,7 @@ select {
     width: 95%;
     margin-top: 10px;
     left: 2.5%;
-    border-spacing: 3px;
+    border-spacing: 10px;
 
     color: white;
     text-align: center;
